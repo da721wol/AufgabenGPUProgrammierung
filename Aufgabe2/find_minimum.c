@@ -86,7 +86,7 @@ cl_float* useMultipleWorkGroups() {
   size_t workgroup_size[] = {WORKGROUP_SIZE};
   clEnqueueNDRangeKernel(queue, kernel, 1, NULL, work_units, workgroup_size, 0, NULL, NULL);
 
-  cl_float* results = malloc (sizeof (cl_float) * NUM_WORKGROUPS);;
+  cl_float* results = malloc (sizeof (cl_float) * NUM_WORKGROUPS);
   clEnqueueReadBuffer(queue, resultBuffer, CL_TRUE, 0, sizeof(cl_float) * NUM_WORKGROUPS, results, 0, NULL, NULL);
 
   clReleaseMemObject(resultBuffer);
